@@ -23,15 +23,15 @@
       "type": "n8n-nodes-base.googleDriveTrigger",
       "typeVersion": 1,
       "position": [
-        -2080,
-        224
+        -8640,
+        1264
       ],
-      "id": "cc64b69c-b684-4c1f-bb06-8d17bf3ccde9",
-      "name": "Google Drive Trigger",
+      "id": "6be3e88a-41a4-44ad-b5b7-94e9ea098754",
+      "name": "Google Drive Trigger1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "h6QNvrrKczm5Picd",
-          "name": "Google Drive account 2"
+          "id": "HJVCJ2rWlEl4MA15",
+          "name": "Google Drive account"
         }
       }
     },
@@ -53,80 +53,30 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -1840,
-        208
+        -8416,
+        1264
       ],
-      "id": "0236e68b-7fb9-4d49-bf7c-e36c8d7b60fa",
-      "name": "Download Driver File2",
+      "id": "410dcdcc-d537-4b62-ac5c-f9f88ce96b51",
+      "name": "Download Driver File",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "h6QNvrrKczm5Picd",
-          "name": "Google Drive account 2"
+          "id": "HJVCJ2rWlEl4MA15",
+          "name": "Google Drive account"
         }
       }
     },
     {
       "parameters": {
-        "table": {
-          "__rl": true,
-          "value": "invoices",
-          "mode": "list",
-          "cachedResultName": "invoices"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.5,
-      "position": [
-        208,
-        0
-      ],
-      "id": "1d7be5a8-6cdd-4d86-8b63-a8acb252a94e",
-      "name": "Insert rows in a table4",
-      "credentials": {
-        "mySql": {
-          "id": "RDuihR42NYbiVcxZ",
-          "name": "MySQL account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "table": {
-          "__rl": true,
-          "value": "line_items",
-          "mode": "list",
-          "cachedResultName": "line_items"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.mySql",
-      "typeVersion": 2.5,
-      "position": [
-        208,
-        384
-      ],
-      "id": "5dcef2e5-805f-405a-a91d-89a527267506",
-      "name": "Insert rows in a table5",
-      "credentials": {
-        "mySql": {
-          "id": "RDuihR42NYbiVcxZ",
-          "name": "MySQL account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "const results = [];\nitems.forEach(item => {\n  const invoiceId = (item.json.output?.invoices && item.json.output.invoices[0]?.invoice_id) || null; // <--- This line needs to be updated if the output splits invoices into separate items\n  const lineItems = item.json.output?.line_items || [];\n\n  lineItems.forEach(li => {\n    results.push({\n      json: {\n        invoice_id: li.invoice_id || invoiceId, // <--- Prefer li.invoice_id first\n        description: li.description || null,\n        quantity: li.quantity || 0,\n        unit_price: li.unit_price || 0,\n        amount: li.amount || 0,\n        hsn_sac: li.hsn_sac || null,\n        unit_of_measurement: li.unit_of_measurement || null,\n        taxable_amount: li.taxable_amount || 0,\n        cgst: li.cgst || 0,\n        cgst_amount: li.cgst_amount || 0,\n        sgst: li.sgst || 0,\n        sgst_amount: li.sgst_amount || 0,\n        igst: li.igst || 0,\n        igst_amount: li.igst_amount || 0\n      }\n    });\n  });\n});\n\nreturn results;\n"
+        "jsCode": "const results = [];\nitems.forEach(item => {\n  const invoiceId = (item.json.output?.invoices && item.json.output.invoices[0]?.invoice_id) || null; // <--- This line needs to be updated if the output splits invoices into separate items\n  const lineItems = item.json.output?.line_items || [];\n\n  lineItems.forEach(li => {\n    results.push({\n      json: {\n        invoice_id: li.invoice_id || invoiceId, // <--- Prefer li.invoice_id first\n        description: li.description || null,\n        quantity: li.quantity || 0,\n        unit_price: li.unit_price || 0,\n        amount: li.amount || 0,\n        hsn_sac: li.hsn_sac || null\n      }\n    });\n  });\n});\nreturn results;"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        16,
-        384
+        -6560,
+        1456
       ],
-      "id": "7f867aec-712b-48d0-b179-14f4779d3f5e",
-      "name": "for line items2"
+      "id": "21942854-adaa-4926-b902-0ea278598063",
+      "name": "for line items1"
     },
     {
       "parameters": {
@@ -135,11 +85,11 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        0,
-        0
+        -6576,
+        1072
       ],
-      "id": "43720a19-8653-43ab-ae88-5b94868bb0ad",
-      "name": "invoice2"
+      "id": "1d97222e-c8ab-4f48-8eb4-a964d1a1a63e",
+      "name": "invoice1"
     },
     {
       "parameters": {
@@ -171,13 +121,13 @@
         },
         "options": {}
       },
-      "id": "1faa0bf5-73a9-440e-bab3-326bec5fa854",
-      "name": "llama ocr extractor3",
+      "id": "1f3c903f-5cf0-4edc-9014-b122d8d9bc6b",
+      "name": "llama ocr extractor2",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1600,
-        192
+        -8176,
+        1264
       ]
     },
     {
@@ -185,11 +135,11 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -1344,
-        192
+        -7920,
+        1264
       ],
-      "id": "a751e039-e482-4700-b470-c657fce4a4fe",
-      "name": "Wait3",
+      "id": "853d8854-28ae-472d-9d3f-b3194facd59f",
+      "name": "Wait2",
       "webhookId": "079f2fe4-91a0-4659-8c61-70b232c1430b"
     },
     {
@@ -213,11 +163,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1120,
-        192
+        -7696,
+        1264
       ],
-      "id": "1b8f70cb-d83d-4693-8ec2-bfef0a0f77be",
-      "name": "Status2"
+      "id": "db890c2e-7edb-49f6-93e6-82dc7c02588a",
+      "name": "Status1"
     },
     {
       "parameters": {
@@ -279,11 +229,11 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.3,
       "position": [
-        -880,
-        192
+        -7456,
+        1264
       ],
-      "id": "670b285a-8e2e-4c0d-be4d-a6a3f9bc82a3",
-      "name": "Switch2"
+      "id": "2aa921c4-f79d-4aff-802c-8424d53202cb",
+      "name": "Switch1"
     },
     {
       "parameters": {
@@ -306,17 +256,17 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -608,
-        176
+        -7184,
+        1248
       ],
-      "id": "4330e463-9c74-4fcd-8fbc-32b85c933935",
-      "name": "Get2"
+      "id": "56efd5f2-6095-44e4-b940-b9e36314f87c",
+      "name": "Get1"
     },
     {
       "parameters": {
         "text": "={{ $json.markdown }}",
         "schemaType": "fromJson",
-        "jsonSchemaExample": "{\n  \"invoices\": [\n    {\n      \"invoice_id\": \"INV-001\",\n      \"invoice_number\": \"1001\",\n      \"invoice_date\": \"2025-08-25\",\n      \"due_date\": \"2025-09-10\",\n      \"vendor_name\": \"ABC Traders Pvt Ltd\",\n      \"vendor_address\": \"123 MG Road, Mumbai, Maharashtra, 400001\",\n      \"buyer_name\": \"XYZ Enterprises\",\n      \"buyer_address\": \"45 Park Street, Kolkata, West Bengal, 700016\",\n      \"currency_code\": \"INR\",\n      \"gstin\": \"27ABCDE1234F1Z5\",\n      \"total_amount\": 59000,\n      \"cgst\": 4500.05,\n      \"sgst\": 45500.05,\n      \"igst\": 0,\n      \"cin\":\"V18101LD1996LPC079003\",\n      \"state_code\": \"19 Kolkata\",\n      \"place_of_supply\": \"Kolkata\",\n      \"pan_no\": \"AAADR3434C\",\n      \"po_no\":\"1010101010\"\n    },\n    {\n      \"invoice_id\": \"INV-002\",\n      \"invoice_number\": \"1002\",\n      \"invoice_date\": \"2025-08-26\",\n      \"due_date\": \"2025-09-11\",\n      \"vendor_name\": \"PQR Solutions\",\n      \"vendor_address\": \"500 Business Park, Chennai, Tamil Nadu, 600001\",\n      \"buyer_name\": \"Acme Corp\",\n      \"buyer_address\": \"10 Tech Lane, Bengaluru, Karnataka, 560001\",\n      \"currency_code\": \"INR\",\n      \"gstin\": \"29FGHIJ5678K2Z6\",\n      \"total_amount\": 35000,\n      \"cgst\": 3000,\n      \"sgst\": 3000,\n      \"igst\": 0,\n      \"cin\":\"U72200KA2000PTC026217\",\n      \"state_code\": \"29 Bengaluru\",\n      \"place_of_supply\": \"Bengaluru\",\n      \"pan_no\": \"BBBDS5656D\",\n      \"po_no\":\"2020202020\"\n    }\n  ],\n  \"line_items\": [\n    {\n      \"invoice_id\": \"INV-001\",\n      \"description\": \"Office Chairs\",\n      \"quantity\": 10,\n      \"unit_price\": 2500,\n      \"amount\": 25000,\n      \"hsn_sac\": \"94013000\",\n      \"unit_of_mesurment\": \"box\",\n      \"Taxable amount\":8500,\n      \"cgst\":5,\n      \"cgst_amount\":4200,\n      \"sgst\":4,\n      \"sgst_amount\":4000,\n      \"igst\":0,\n      \"igst_amount\":0\n    },\n    {\n      \"invoice_id\": \"INV-001\",\n      \"description\": \"Desks\",\n      \"quantity\": 5,\n      \"unit_price\": 6800,\n      \"amount\": 34000,\n      \"hsn_sac\": \"94033010\",\n      \"unit_of_mesurment\": \"box\",\n      \"Taxable amount\":8500,\n      \"cgst\":5,\n      \"cgst_amount\":4200,\n      \"sgst\":4,\n      \"sgst_amount\":4000,\n      \"igst\":0,\n      \"igst_amount\":0\n    },\n    {\n      \"invoice_id\": \"INV-002\",\n      \"description\": \"Software License\",\n      \"quantity\": 1,\n      \"unit_price\": 15000,\n      \"amount\": 15000,\n      \"hsn_sac\": \"85238020\",\n      \"unit_of_mesurment\": \"box\",\n      \"Taxable amount\":8500,\n      \"cgst\":5,\n      \"cgst_amount\":4200,\n      \"sgst\":4,\n      \"sgst_amount\":4000,\n      \"igst\":0,\n      \"igst_amount\":0\n    },\n    {\n      \"invoice_id\": \"INV-002\",\n      \"description\": \"Consulting Services\",\n      \"quantity\": 20,\n      \"unit_price\": 1000,\n      \"amount\": 20000,\n      \"hsn_sac\": \"998313\",\n      \"unit_of_mesurment\": \"box\",\n      \"Taxable amount\":8500,\n      \"cgst\":5,\n      \"cgst_amount\":4200,\n      \"sgst\":4,\n      \"sgst_amount\":4000,\n      \"igst\":0,\n      \"igst_amount\":0\n      \n    }\n  ]\n}",
+        "jsonSchemaExample": "{\n  \"invoices\": [\n    {\n      \"invoice_id\": \"INV-001\",\n      \"invoice_number\": \"1001\",\n      \"invoice_date\": \"2025-08-25\",\n      \"due_date\": \"2025-09-10\",\n      \"vendor_name\": \"ABC Traders Pvt Ltd\",\n      \"vendor_address\": \"123 MG Road, Mumbai, Maharashtra, 400001\",\n      \"buyer_name\": \"XYZ Enterprises\",\n      \"buyer_address\": \"45 Park Street, Kolkata, West Bengal, 700016\",\n      \"currency_code\": \"INR\",\n      \"gstin\": \"27ABCDE1234F1Z5\",\n      \"total_amount\": 59000,\n      \"cgst\": 4500.05,\n      \"sgst\": 45500.05,\n      \"igst\": 0,\n      \"cin\":\"V18101LD1996LPC079003\",\n      \"state_code\": \"19 Kolkata\",\n      \"place_of_supply\": \"Kolkata\",\n      \"pan_no\": \"AAADR3434C\",\n      \"po_no\":\"1010101010\"\n    },\n    {\n      \"invoice_id\": \"INV-002\",\n      \"invoice_number\": \"1002\",\n      \"invoice_date\": \"2025-08-26\",\n      \"due_date\": \"2025-09-11\",\n      \"vendor_name\": \"PQR Solutions\",\n      \"vendor_address\": \"500 Business Park, Chennai, Tamil Nadu, 600001\",\n      \"buyer_name\": \"Acme Corp\",\n      \"buyer_address\": \"10 Tech Lane, Bengaluru, Karnataka, 560001\",\n      \"currency_code\": \"INR\",\n      \"gstin\": \"29FGHIJ5678K2Z6\",\n      \"total_amount\": 35000,\n      \"cgst\": 3000,\n      \"sgst\": 3000,\n      \"igst\": 0,\n      \"cin\":\"U72200KA2000PTC026217\",\n      \"state_code\": \"29 Bengaluru\",\n      \"place_of_supply\": \"Bengaluru\",\n      \"pan_no\": \"BBBDS5656D\",\n      \"po_no\":\"2020202020\"\n    }\n  ],\n  \"line_items\": [\n    {\n      \"invoice_id\": \"INV-001\",\n      \"description\": \"Office Chairs\",\n      \"quantity\": 10,\n      \"unit_price\": 2500,\n      \"amount\": 25000,\n      \"hsn_sac\": \"94013000\"\n    },\n    {\n      \"invoice_id\": \"INV-001\",\n      \"description\": \"Desks\",\n      \"quantity\": 5,\n      \"unit_price\": 6800,\n      \"amount\": 34000,\n      \"hsn_sac\": \"94033010\"\n    },\n    {\n      \"invoice_id\": \"INV-002\",\n      \"description\": \"Software License\",\n      \"quantity\": 1,\n      \"unit_price\": 15000,\n      \"amount\": 15000,\n      \"hsn_sac\": \"85238020\"\n    },\n    {\n      \"invoice_id\": \"INV-002\",\n      \"description\": \"Consulting Services\",\n      \"quantity\": 20,\n      \"unit_price\": 1000,\n      \"amount\": 20000,\n      \"hsn_sac\": \"998313\"\n    }\n  ]\n}",
         "options": {
           "systemPromptTemplate": "You are an expert invoice data extraction system. Extract ALL relevant information from the provided text, handling various formats including tables, PDFs, emails, and unstructured text.\n\nEXTRACTION RULES:\n1. Extract invoice-level data (invoice_number, vendor_name, vendor_address, invoice_date, due_date, total_amount, GST details, etc.) into an \"invoices\" table.\n2. For multiple line items, extract each into a \"line_items\" table as separate objects.\n3. Each line item must include a reference key \"invoice_id\" that links it to the corresponding invoice in the \"invoices\" table.\n4. Do not repeat line items inside the \"invoices\" table. Ensure invoice-level fields are stored only once in \"invoices\".\n5. Extract monetary values without currency symbols as numbers.\n6. Convert dates to YYYY-MM-DD format when possible.\n7. Extract complete company names and addresses.\n8. Handle Indian tax formats (GST, CGST, SGST, IGST).\n9. If any field is unclear or missing, omit it completely.\n10. Look for data in email signatures, headers, and footers.\n11. Parse table structures carefully.\n12. Extract HSN/SAC codes when available.\n13.1. Sometimes, the state code may appear within the place of supply field or text. The model should intelligently identify it from there and include the correct state code in the output.\n\n14. Remember, the invoice ID is not the same as any date mentioned in the invoice. Do not treat or extract dates as invoice IDs.\n\nIMPORTANT: Return ONLY a valid JSON object with exactly two arrays named \"invoices\" and \"line_items\".\n\n15. invoice number and bill number are same.\n\nExample format (braces doubled to avoid template parsing):\n\n{{\n  \"invoices\": [],\n  \"line_items\": []\n}}\n\nDo not include explanations, comments, or placeholder text."
         }
@@ -324,11 +274,11 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1,
       "position": [
-        -368,
-        176
+        -6944,
+        1248
       ],
-      "id": "0b70f87b-d67e-49d0-b62a-bbd29e1875a2",
-      "name": "Information Extractor"
+      "id": "86a7d42c-6f22-483d-97ce-0ee6b1263290",
+      "name": "Information Extractor2"
     },
     {
       "parameters": {
@@ -343,147 +293,177 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -368,
-        608
+        -6944,
+        1680
       ],
-      "id": "ca14066b-268f-4c88-896b-1a285809d81c",
-      "name": "OpenAI Chat Model",
+      "id": "95b57214-ba14-4ae1-8f59-cc20cb9dcf7c",
+      "name": "OpenAI Chat Model3",
       "credentials": {
         "openAiApi": {
-          "id": "4orPEHggJxTwQg4e",
-          "name": "name-api"
+          "id": "OuTGK0iXuXjco5DK",
+          "name": "OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "toFile",
+        "binaryPropertyName": "={{ $json.Id }},{{ $json.BranchId }},{{ $json.Name }},{{ $json.CreatedBy }},{{ $json.CreatedAt }},",
+        "options": {}
+      },
+      "id": "02cd32d3-ee6c-44da-88be-340be80dfa21",
+      "name": "Export Query Result to Excel2",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "typeVersion": 1,
+      "position": [
+        -6320,
+        1072
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toFile",
+        "binaryPropertyName": "={{ $json.Id }},{{ $json.BranchId }},{{ $json.Name }},{{ $json.CreatedBy }},{{ $json.CreatedAt }},",
+        "options": {}
+      },
+      "id": "2f0fa772-0b6c-45d2-8579-77a780590bc5",
+      "name": "Export Query Result to Excel",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "typeVersion": 1,
+      "position": [
+        -6320,
+        1456
+      ]
     }
   ],
   "connections": {
-    "Google Drive Trigger": {
+    "Google Drive Trigger1": {
       "main": [
         [
           {
-            "node": "Download Driver File2",
+            "node": "Download Driver File",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Download Driver File2": {
+    "Download Driver File": {
       "main": [
         [
           {
-            "node": "llama ocr extractor3",
+            "node": "llama ocr extractor2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "for line items2": {
+    "for line items1": {
       "main": [
         [
           {
-            "node": "Insert rows in a table5",
+            "node": "Export Query Result to Excel",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "invoice2": {
+    "invoice1": {
       "main": [
         [
           {
-            "node": "Insert rows in a table4",
+            "node": "Export Query Result to Excel2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "llama ocr extractor3": {
+    "llama ocr extractor2": {
       "main": [
         [
           {
-            "node": "Wait3",
+            "node": "Wait2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Wait3": {
+    "Wait2": {
       "main": [
         [
           {
-            "node": "Status2",
+            "node": "Status1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Status2": {
+    "Status1": {
       "main": [
         [
           {
-            "node": "Switch2",
+            "node": "Switch1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Switch2": {
+    "Switch1": {
       "main": [
         [
           {
-            "node": "Get2",
+            "node": "Get1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Wait3",
+            "node": "Wait2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Get2": {
+    "Get1": {
       "main": [
         [
           {
-            "node": "Information Extractor",
+            "node": "Information Extractor2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Information Extractor": {
+    "Information Extractor2": {
       "main": [
         [
           {
-            "node": "invoice2",
+            "node": "invoice1",
             "type": "main",
             "index": 0
           },
           {
-            "node": "for line items2",
+            "node": "for line items1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "OpenAI Chat Model": {
+    "OpenAI Chat Model3": {
       "ai_languageModel": [
         [
           {
-            "node": "Information Extractor",
+            "node": "Information Extractor2",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -494,6 +474,6 @@
   "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "b4014ee051fd78e43ccc9e0ba058ceb98ba0002058297943e9f1838316385f97"
+    "instanceId": "8b8ba54ce657116fcf7a2a6fcf154fd634068fb3d80f9b0ca644589eb165efbd"
   }
 }
