@@ -32,7 +32,14 @@ This system automates the entire invoice processing workflow—from detecting ne
 **Key Achievement**: Reduces manual invoice processing time by **90%**, processing **50+ invoices daily** with **95%+ accuracy**.
 
 ---
+## 🎥 Demo Recording
 
+Here is a full walkthrough of the automated invoice processing system — including Google Drive detection, OCR extraction, AI parsing, and Excel export.
+
+▶️ **Watch the screen recording:**  
+https://github.com/yourusername/yourrepo/assets/your-video-link
+
+---
 ## ✨ Features
 
 * 🔄 **Automated Monitoring**: Watches Google Drive folder for new invoice uploads
